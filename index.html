@@ -93,7 +93,7 @@
 //TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
 var video = document.getElementById('video');
 
-  var tracker = new tracking.ColorTracker(['cyan']);
+  //var tracker = 
 
   tracking.track('#video', tracker, {
       camera: true
@@ -193,13 +193,15 @@ var video = document.getElementById('video');
       //AQUI QUE A GENTE VAI INSERIR A FUNÇÃO PARA CHAMAR AS CORES
       if (keyLeft)
         playerX = playerX - dx;
+
       else if (keyRight)
         playerX = playerX + dx;
 
       playerX = playerX - (dx * speedPercent * playerSegment.curve * centrifugal);
 
-      if (keyFaster)
+      if (tracking.ColorTracker(['cyan']) == true)
         speed = Util.accelerate(speed, accel, dt);
+
       else if (keySlower)
         speed = Util.accelerate(speed, breaking, dt);
       else
