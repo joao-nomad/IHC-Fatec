@@ -99,6 +99,19 @@ var video = document.getElementById('video');
       camera: true
   });
 
+  tracker.on('track', function (event) {
+      if (event.data.length === 0) {
+          keyFaster();
+      } else {
+          event.data.forEach(function (rect) {
+              console.log("ok");
+              showpeppa(false);
+          });
+      }
+  });
+  function showpeppa(arg) {
+      document.getElementById("peppapig").hidden = arg;
+  }
 
 //FIM DA FUNÇÃO
 
@@ -696,21 +709,6 @@ var video = document.getElementById('video');
       Dom.get('currentFieldOfView').innerHTML    = Dom.get('fieldOfView').value    = fieldOfView;
       Dom.get('currentFogDensity').innerHTML     = Dom.get('fogDensity').value     = fogDensity;
     }
-
-    
-  tracker.on('track', function (event) {
-      if (event.data.length === 0) {
-          keyFaster();
-      } else {
-          event.data.forEach(function (rect) {
-              console.log("ok");
-              showpeppa(false);
-          });
-      }
-  });
-  function showpeppa(arg) {
-      document.getElementById("peppapig").hidden = arg;
-  }
 
     //=========================================================================
 
