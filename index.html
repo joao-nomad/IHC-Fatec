@@ -93,25 +93,12 @@
 //TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
 var video = document.getElementById('video');
 
-  //var tracker = 
+  var tracker = new tracking.ColorTracker(['cyan']);
 
   tracking.track('#video', tracker, {
       camera: true
   });
 
-  tracker.on('track', function (event) {
-      if (event.data.length === 0) {
-          showpeppa(true);
-      } else {
-          event.data.forEach(function (rect) {
-              console.log("ok");
-              showpeppa(false);
-          });
-      }
-  });
-  function showpeppa(arg) {
-      document.getElementById("peppapig").hidden = arg;
-  }
 
 //FIM DA FUNÇÃO
 
@@ -194,14 +181,14 @@ var video = document.getElementById('video');
       if (keyLeft)
         playerX = playerX - dx;
 
+
       else if (keyRight)
         playerX = playerX + dx;
 
       playerX = playerX - (dx * speedPercent * playerSegment.curve * centrifugal);
 
-      if (tracking.ColorTracker(['cyan']) == true)
+      if (keyFaster)
         speed = Util.accelerate(speed, accel, dt);
-
       else if (keySlower)
         speed = Util.accelerate(speed, breaking, dt);
       else
@@ -709,6 +696,21 @@ var video = document.getElementById('video');
       Dom.get('currentFieldOfView').innerHTML    = Dom.get('fieldOfView').value    = fieldOfView;
       Dom.get('currentFogDensity').innerHTML     = Dom.get('fogDensity').value     = fogDensity;
     }
+
+    
+  tracker.on('track', function (event) {
+      if (event.data.length === 0) {
+          keyFaster();
+      } else {
+          event.data.forEach(function (rect) {
+              console.log("ok");
+              showpeppa(false);
+          });
+      }
+  });
+  function showpeppa(arg) {
+      document.getElementById("peppapig").hidden = arg;
+  }
 
     //=========================================================================
 
