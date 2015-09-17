@@ -75,7 +75,7 @@
   <span id="mute"></span>
 
 	  <div>
-	    <h1> Show an yellow color to see peppa</h1>
+	    <h1>Mostra o CYANO</h1>
 	    <div>
 	        <video id="video" width="300" height="225" preload autoplay loop muted controls></video>
 	    </div>
@@ -186,8 +186,8 @@
 		if (event.data.length === 0) {
 			showpeppa(true);
 			
-			keySlower = false;
-			keyFaster = true;
+			keySlower = true;
+			keyFaster = false;
 			
 			
     } else {
@@ -196,8 +196,8 @@
         console.log("ok");
         showpeppa(false);
 		
-		keyFaster = false;
-		keySlower = true;
+		keyFaster = true;
+		keySlower = false;
 		
         });
     }
