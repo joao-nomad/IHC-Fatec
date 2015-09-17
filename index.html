@@ -189,10 +189,16 @@
 			keySlower = false;
 			keyFaster = true;
 			
+			
     } else {
 		event.data.forEach(function (rect) {
+		
         console.log("ok");
         showpeppa(false);
+		
+		keyFaster = false;
+		keySlower = true;
+		
         });
     }
 	});
