@@ -84,11 +84,20 @@
 	<div id="pepaimg">
 	    <img id="peppapig" src="http://i.ytimg.com/vi/oPObb2ib_yc/maxresdefault.jpg" hidden=false />
 	</div>
+	
+	<button id="target">CLICA</button>
 
-  <script src="trackColor.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="trackColor.js"></script>  
   <script src="stats.js"></script>
   <script src="common.js"></script>
   <script>
+  
+	//TESTANDO JQUERY INCLUIDA
+	$("#target").click(function() {
+		alert("TESTE");
+	});
 
 //TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
 var video = document.getElementById('video');
@@ -101,11 +110,10 @@ var video = document.getElementById('video');
 
   tracker.on('track', function (event) {
       if (event.data.length === 0) {
-          keyFaster();
+          alert("A COR CYAN ENTROU");
       } else {
           event.data.forEach(function (rect) {
-              console.log("ok");
-              showpeppa(false);
+              alert("NÃO TEVE COR DETECTADA");
           });
       }
   });
@@ -634,7 +642,7 @@ var video = document.getElementById('video');
     //=========================================================================
     // THE GAME LOOP
     //=========================================================================
-    //VAMOS INSERIR A FUNÇÃO DA TECLA AQUI
+
     Game.run({
       canvas: canvas, render: render, update: update, stats: stats, step: step,
       images: ["background", "sprites"],
