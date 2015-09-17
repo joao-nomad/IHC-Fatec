@@ -98,30 +98,6 @@
   <script>
   
 
-
-//TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
-var video = document.getElementById('video');
-
-  var tracker = new tracking.ColorTracker(['cyan']);
-
-  tracking.track('#video', tracker, {
-      camera: true
-  });
-
-  tracker.on('track', function (event) {
-      if (event.data.length === 0) {
-          showpeppa(true);
-      } else {
-          event.data.forEach(function (rect) {
-              console.log("ok");
-              showpeppa(false);
-          });
-      }
-  });
-  function showpeppa(arg) {
-      document.getElementById("peppapig").hidden = arg;
-  }
-
 //FIM DA FUNÇÃO
 
     var fps            = 60;                      // how many 'update' frames per second
@@ -193,6 +169,34 @@ var video = document.getElementById('video');
 		keyLeft = false;
 		keyRight = true;
 	});
+	
+	
+	
+	// INICIO DO TESTE	
+	//TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
+	var video = document.getElementById('video');
+
+	var tracker = new tracking.ColorTracker(['cyan']);
+
+	tracking.track('#video', tracker, {
+		camera: true
+	});
+
+	tracker.on('track', function (event) {
+		if (event.data.length === 0) {
+			showpeppa(true);
+			keyFaster = true;
+    } else {
+		event.data.forEach(function (rect) {
+        console.log("ok");
+        showpeppa(false);
+        });
+    }
+	});
+	function showpeppa(arg) {
+		document.getElementById("peppapig").hidden = arg;
+	}  
+	//FIM DO TESTE
 	
     var hud = {
       speed:            { value: null, dom: Dom.get('speed_value')            },
