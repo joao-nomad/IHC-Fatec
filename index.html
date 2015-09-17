@@ -185,7 +185,10 @@
 	tracker.on('track', function (event) {
 		if (event.data.length === 0) {
 			showpeppa(true);
+			
+			keySlower = false;
 			keyFaster = true;
+			
     } else {
 		event.data.forEach(function (rect) {
         console.log("ok");
