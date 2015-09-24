@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-
+<!-- ASDASDA -->
 <html>
 <head>
   <title>Javascript Racer - v4 (final)</title>
@@ -94,8 +94,7 @@
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="trackColor.js"></script>  
   <script src="stats.js"></script>
-  <script src="common.js"></script>  
-  
+  <script src="common.js"></script>
   <script>
   
 
@@ -141,13 +140,13 @@
     var decel          = -maxSpeed/5;             // 'natural' deceleration rate when neither accelerating, nor braking
     var offRoadDecel   = -maxSpeed/2;             // off road deceleration is somewhere in between
     var offRoadLimit   =  maxSpeed/4;             // limit when off road deceleration no longer applies (e.g. you can always go at least this speed even when off road)
-    var totalCars      = 2000;                     // total number of cars on the road
+    var totalCars      = 200;                     // total number of cars on the road
     var currentLapTime = 0;                       // current lap time
     var lastLapTime    = null;                    // last lap time
 
     var keyLeft        = false;
     var keyRight       = false;
-    var keyFaster      = true;
+    var keyFaster      = false;
     var keySlower      = false;
 
 	//TESTANDO JQUERY INCLUIDA
@@ -177,56 +176,35 @@
 	//TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
 	var video = document.getElementById('video');
 
-	var trackcyan = new tracking.ColorTracker(['cyan']);
-	var trackmag =  new tracking.ColorTracker(['magenta']);
+	var tracker = new tracking.ColorTracker(['cyan']);
 
 	tracking.track('#video', tracker, {
 		camera: true
 	});
 
-	trackcyan.on('track', function (event) {//cyan vira para direita
+	tracker.on('track', function (event) {
 		if (event.data.length === 0) {
 			showpeppa(true);
 			
-			keyRight = true;
-			keyLeft = false;
+			keySlower = true;
+			keyFaster = false;
 			
 			
     } else {
-		event.data.forEach(function (rect) {		
+		event.data.forEach(function (rect) {
+		
         console.log("ok");
-        showpeppa(false);		
-		keyRight = false;	
-		keyLeft = false;
+        showpeppa(false);
+		
+		keyFaster = true;
+		keySlower = false;
 		
         });
     }
 	});
-	
-	trackmag.on('track', function (event) {//Magenta vira para esquerda
-		if (event.data.length === 0) {
-			showpeppa(true);
-			
-			keyLeft = true;
-			keyRight = false;
-			
-			
-    } else {
-		event.data.forEach(function (rect) {		
-        console.log("ok");
-        showpeppa(false);		
-		keyRight = false;
-		keyLeft = false;		
-		
-        });
-    }
-	});	
-	
 	function showpeppa(arg) {
 		document.getElementById("peppapig").hidden = arg;
 	}  
-	
-	
 	//FIM DO TESTE
 	
     var hud = {
