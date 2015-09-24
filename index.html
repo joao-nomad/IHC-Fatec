@@ -213,14 +213,14 @@
 		if (event.data.length === 0) {
 			showpeppa(true);
 			
-			keyLeft = true;	
+			keyLeft = false;	
     } else {
 		event.data.forEach(function (rect) {
 		
         console.log("ok");
         showpeppa(false);
 		
-		keyLeft = false;
+		keyLeft = true;
 		
         });
     }
