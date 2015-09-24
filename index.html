@@ -184,7 +184,7 @@
 	tracker.on('track', function (event) {
 		if (event.data.length === 0) {
 			showpeppa(true);			
-			keySlower = true;
+			keyLeft = false;
 			keyFaster = false;
 			
 			
@@ -194,37 +194,14 @@
         console.log("ok");
         showpeppa(false);
 		
+		keyLeft = true;
 		keyFaster = true;
-		keySlower = false;
 		
         });
     }
 	});
 	//FIM DO TESTE
 	
-	
-	//TESTE2
-	var tracket = new tracking.ColorTracker(['magenta']);
-	tracking.track('#video', tracket, {
-		camera: true
-	});
-
-	tracket.on('track', function (event) {
-		if (event.data.length === 0) {
-			showpeppa(true);
-			
-			keyLeft = false;	
-    } else {
-		event.data.forEach(function (rect) {
-		
-        console.log("ok");
-        showpeppa(false);
-		
-		keyLeft = true;
-		
-        });
-    }
-	});	
 	
     var hud = {
       speed:            { value: null, dom: Dom.get('speed_value')            },
