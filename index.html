@@ -153,7 +153,6 @@
 	$("#acelera").click(function() {
 		keySlower = false;
 		keyFaster = true;
-		keyLeft = true;
 	});
 	
 	$("#freia").click(function() {
@@ -184,10 +183,10 @@
 
 	tracker.on('track', function (event) {
 		if (event.data.length === 0) {
-			showpeppa(true);			
-			keyLeft = false;
+			showpeppa(true);
+						
 			keyFaster = false;
-			
+			keyLeft = false;			
 			
     } else {
 		event.data.forEach(function (rect) {
@@ -195,8 +194,8 @@
         console.log("ok");
         showpeppa(false);
 		
-		keyLeft = true;
 		keyFaster = true;
+		keyLeft = true;
 		
         });
     }
