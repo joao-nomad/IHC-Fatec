@@ -101,7 +101,7 @@ var video = document.getElementById('video');
 
   tracker.on('track', function (event) {
       if (event.data.length === 0) {
-          keyFaster() = true;
+          keyFaster = true;
       } else {
           event.data.forEach(function (rect) {
               console.log("ok");
