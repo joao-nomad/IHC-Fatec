@@ -92,6 +92,7 @@
 
 //TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
 var video = document.getElementById('video');
+var video = document.getElementById('video');
 
 var tracker = new tracking.ColorTracker(['yellow']);
 
@@ -110,13 +111,9 @@ tracker.on('track', function (event) {
     }
 });
 
-
 function showpeppa(arg) {
     document.getElementById("peppapig").hidden = arg;
 }
-
-
-
 //FIM DA FUNÇÃO
 
     var fps            = 60;                      // how many 'update' frames per second
