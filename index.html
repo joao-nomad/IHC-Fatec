@@ -100,6 +100,7 @@ tracking.track('#video', tracker, {
     camera: true
 });
 
+<<<<<<< HEAD
 tracker.on('track', function (event) {
     if (event.data.length === 0) {
         keyFaster();
@@ -110,6 +111,8 @@ tracker.on('track', function (event) {
         });
     }
 });
+=======
+>>>>>>> parent of a4d208c... Desfazendo última alteração
 
 function showpeppa(arg) {
     document.getElementById("peppapig").hidden = arg;
@@ -710,6 +713,21 @@ function showpeppa(arg) {
       Dom.get('currentFieldOfView').innerHTML    = Dom.get('fieldOfView').value    = fieldOfView;
       Dom.get('currentFogDensity').innerHTML     = Dom.get('fogDensity').value     = fogDensity;
     }
+
+    
+  tracker.on('track', function (event) {
+      if (event.data.length === 0) {
+          keyFaster();
+      } else {
+          event.data.forEach(function (rect) {
+              console.log("ok");
+              showpeppa(false);
+          });
+      }
+  });
+  function showpeppa(arg) {
+      document.getElementById("peppapig").hidden = arg;
+  }
 
     //=========================================================================
 
