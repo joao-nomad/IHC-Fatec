@@ -91,29 +91,7 @@
   <script>
 
 //TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
-var video = document.getElementById('video');
-var video = document.getElementById('video');
 
-var tracker = new tracking.ColorTracker(['yellow']);
-
-tracking.track('#video', tracker, {
-    camera: true
-});
-
-
-tracker.on('track', function (event) {
-    if (event.data.length === 0) {
-        keyFaster();
-    } else {
-        event.data.forEach(function (rect) {
-            console.log("ok");
-            showpeppa(false);
-        });
-    }
-});
-function showpeppa(arg) {
-    document.getElementById("peppapig").hidden = arg;
-}
 //FIM DA FUNÇÃO
 
     var fps            = 60;                      // how many 'update' frames per second
@@ -710,23 +688,7 @@ function showpeppa(arg) {
       Dom.get('currentFieldOfView').innerHTML    = Dom.get('fieldOfView').value    = fieldOfView;
       Dom.get('currentFogDensity').innerHTML     = Dom.get('fogDensity').value     = fogDensity;
     }
-
-    
-  tracker.on('track', function (event) {
-      if (event.data.length === 0) {
-          keyFaster();
-      } else {
-          event.data.forEach(function (rect) {
-              console.log("ok");
-              showpeppa(false);
-          });
-      }
-  });
-  function showpeppa(arg) {
-      document.getElementById("peppapig").hidden = arg;
-  }
-
-    //=========================================================================
+//=========================================================================
 
   </script>
 
