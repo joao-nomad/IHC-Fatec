@@ -93,25 +93,29 @@
 //TENTANDO IMPLEMENTAR A FUNÇÃO DE CHAMAR A PEPPA NO MESMO SCRIPT QUE POSSUI AS FUNÇÕES DO CARRO
 var video = document.getElementById('video');
 
-  var tracker = new tracking.ColorTracker(['cyan']);
+var tracker = new tracking.ColorTracker(['yellow']);
 
-  tracking.track('#video', tracker, {
-      camera: true
-  });
+tracking.track('#video', tracker, {
+    camera: true
+});
 
-  tracker.on('track', function (event) {
-      if (event.data.length === 0) {
-          keyFaster();
-      } else {
-          event.data.forEach(function (rect) {
-              console.log("ok");
-              showpeppa(false);
-          });
-      }
-  });
-  function showpeppa(arg) {
-      document.getElementById("peppapig").hidden = arg;
-  }
+tracker.on('track', function (event) {
+    if (event.data.length === 0) {
+        showpeppa(true);
+    } else {
+        event.data.forEach(function (rect) {
+            console.log("ok");
+            showpeppa(false);
+        });
+    }
+});
+
+
+function showpeppa(arg) {
+    document.getElementById("peppapig").hidden = arg;
+}
+
+
 
 //FIM DA FUNÇÃO
 
