@@ -101,7 +101,7 @@ tracking.track('#video', tracker, {
 
 tracker.on('track', function (event) {
     if (event.data.length === 0) {
-        keyFaster = true;
+        showpeppa(true);
     } else {
         event.data.forEach(function (rect) {
             console.log("ok");
