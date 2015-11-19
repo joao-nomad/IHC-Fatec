@@ -1,5 +1,9 @@
+body{
+	overflow: hidden !important;
+}
 #btngrid{
     position: absolute;
     margin-top: 550px;
-    margin-left: 10px;
+    margin-left: 320px;
+    width: 100%;
 }
