@@ -162,9 +162,20 @@
 
     //INSERÇÃO DOS EVENTOS DO BOTÃO
     $("#parar").click(function() {
-      keySlower = true;
       keyFaster = false;
+      keySlower = true;      
     });
+
+    $("#direita").click(function() {
+      keyLeft = false;
+      keyRight = true;
+    });
+
+    $("#esquerda").click(function() {
+      keyRight = false;
+      keyLeft = true;
+    });
+
 
     //=========================================================================
     // UPDATE THE GAME WORLD
