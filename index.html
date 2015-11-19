@@ -160,6 +160,11 @@
       fast_lap_time:    { value: null, dom: Dom.get('fast_lap_time_value')    }
     }
 
+    //INSERÇÃO DOS EVENTOS DO BOTÃO
+    $("#parar").click(function() {
+      keySlower = true;
+    });
+
     //=========================================================================
     // UPDATE THE GAME WORLD
     //=========================================================================
