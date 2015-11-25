@@ -12,6 +12,8 @@ body{
     height: 150px;
     width: 20%;
     position: relative;
+    margin-left: 500px;
+    margin-top: 20px;
 }
 #peppapig {
     float: left;
