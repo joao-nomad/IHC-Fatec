@@ -205,16 +205,17 @@
 
     tracker.on('track', function (event) {
       if (event.data.length === 0) {
+        showpeppa(true);
         keyFaster = false;
-        keySlower = true; 
+        keySlower = true;
+
       } else {
         event.data.forEach(function (rect) {
           console.log("ok");
-          keyFaster = true;
-          keySlower = false; 
+          showpeppa(false);
         });
       }
-    });
+  });
 
 
     //=========================================================================
