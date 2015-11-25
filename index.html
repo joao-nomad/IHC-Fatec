@@ -198,24 +198,54 @@
     var video = document.getElementById('video');
 
     var tracker = new tracking.ColorTracker(['yellow']);
+    var trackerR = new tracking.ColorTracker(['cyan']);
+    var trackerL = new tracking.ColorTracker(['magenta']);
 
     tracking.track('#video', tracker, {
       camera: true
     });
 
+    //AMARELO = PARA O CARRINHO
     tracker.on('track', function (event) {
       if (event.data.length === 0) {
         showpeppa(true);
         keyFaster = false;
-        keySlower = true;
-
+        keySlower = true;   
       } else {
         event.data.forEach(function (rect) {
           console.log("ok");
-          showpeppa(false);
+          showpeppa(false); 
         });
       }
-  });
+    });
+
+    //CYAN = CARRINHO P DIREITA
+    trackerR.on('track', function (event) {
+      if (event.data.length === 0) {
+        showpeppa(true);
+        keyLeft = false;
+        keyRight = true;  
+      } else {
+        event.data.forEach(function (rect) {
+          console.log("ok");
+          showpeppa(false); 
+        });
+      }
+    });
+
+    //MAGENTA = CARRINHO P DIREITA
+    trackerL.on('track', function (event) {
+      if (event.data.length === 0) {
+        showpeppa(true);
+        keyLeft = true;
+        keyRight = false;  
+      } else {
+        event.data.forEach(function (rect) {
+          console.log("ok");
+          showpeppa(false); 
+        });
+      }
+    });
 
 
     //=========================================================================
