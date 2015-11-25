@@ -7,3 +7,15 @@ body{
     margin-left: 320px;
     width: 100%;
 }
+
+#video {
+    height: 150px;
+    width: 20%;
+    position: relative;
+}
+#peppapig {
+    float: left;
+    position: relative;
+    width: 80%;
+    height: 50%;
+}

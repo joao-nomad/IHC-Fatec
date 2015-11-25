@@ -98,8 +98,47 @@
   <script src="common.js"></script>
   <script src="js/jquery-1.11.3.min.js"></script>
 
-  //CHAMANDO BIBLIOTECA DO COLOR TRACK (TRACKING)
+  <!-- HTML DA PEPPA PIG -->
+  <div>
+    <h1> Show an yellow color to see peppa</h1>
+    <div>
+        <video id="video" width="300" height="225" preload autoplay loop muted controls></video>
+    </div>
+</div>
+
+<div id="pepaimg">
+    <img id="peppapig" src="http://i.ytimg.com/vi/oPObb2ib_yc/maxresdefault.jpg" hidden=false />
+</div>
+
+  <!-- CHAMANDO BIBLIOTECA DO COLOR TRACK (TRACKING) -->
   <script src="js/tracking.js"></script>
+
+  <!-- SCRIPT PARA FUNÇÃO DA PEPPA -->
+  <script>
+  var video = document.getElementById('video');
+
+  var tracker = new tracking.ColorTracker(['yellow']);
+
+  tracking.track('#video', tracker, {
+    camera: true
+  });
+
+  tracker.on('track', function (event) {
+    if (event.data.length === 0) {
+        showpeppa(true);
+    } else {
+        event.data.forEach(function (rect) {
+            console.log("ok");
+            showpeppa(false);
+        });
+    }
+  });
+
+
+  function showpeppa(arg) {
+    document.getElementById("peppapig").hidden = arg;
+  }
+  </script>
 
   <script>
   $("#acelerar").click(function() {
