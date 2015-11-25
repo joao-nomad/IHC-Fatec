@@ -109,39 +109,8 @@
     </div>
 </div>
 
-<div id="pepaimg">
-    <img id="peppapig" src="http://i.ytimg.com/vi/oPObb2ib_yc/maxresdefault.jpg" hidden=false />
-</div>
-
   <!-- CHAMANDO BIBLIOTECA DO COLOR TRACK (TRACKING) -->
   <script src="js/tracking.js"></script>
-
-  <!-- SCRIPT PARA FUNÇÃO DA PEPPA -->
-  <script>
-  var video = document.getElementById('video');
-
-  var tracker = new tracking.ColorTracker(['yellow']);
-
-  tracking.track('#video', tracker, {
-    camera: true
-  });
-
-  tracker.on('track', function (event) {
-    if (event.data.length === 0) {
-        showpeppa(true);
-    } else {
-        event.data.forEach(function (rect) {
-            console.log("ok");
-            showpeppa(false);
-        });
-    }
-  });
-
-
-  function showpeppa(arg) {
-    document.getElementById("peppapig").hidden = arg;
-  }
-  </script>
 
   <script>
   $("#acelerar").click(function() {
@@ -220,6 +189,31 @@
     $("#esquerda").click(function() {
       keyRight = false;
       keyLeft = true;
+    });
+
+
+    //============================================
+    //  INSERÇÃO DAS CORES
+    //============================================
+    var video = document.getElementById('video');
+
+    var tracker = new tracking.ColorTracker(['yellow']);
+
+    tracking.track('#video', tracker, {
+      camera: true
+    });
+
+    tracker.on('track', function (event) {
+      if (event.data.length === 0) {
+        keyFaster = false;
+        keySlower = true; 
+      } else {
+        event.data.forEach(function (rect) {
+          console.log("ok");
+          keyFaster = true;
+          keySlower = false; 
+        });
+      }
     });
 
 
